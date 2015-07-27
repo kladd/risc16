@@ -1,6 +1,6 @@
 # RISC-16 (Sort of) - VM in Go
 
-The original plan was to make a RISC-16 VM. But, in the end I've made a hybrid of RISC-16 and MIPS with some syntax borrowed from SPARC.
+The original plan was to make a RISC-16 VM. But, in the end I've made a hybrid of RISC-16 and MIPS with some syntax borrowed from SPARC. Words are 16 bits wide and there are 8 registers. Register 0 always holds the value 0.
 
 ## Usage
 
