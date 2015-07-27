@@ -38,6 +38,15 @@ func exec(ins uint16) {
 		if regs[ra] == regs[rb] {
 			pc += simm
 		}
+	case spec.Jalr:
+		ra := spec.RegA(ins)
+		rb := spec.RegB(ins)
+
+		regs[ra] = pc + 1
+		pc = regs[rb]
+
+		// do not inc program counter
+		return
 	}
 
 	pc++
@@ -64,7 +73,8 @@ func Exec(r io.Reader) {
 
 // Dump dumps VM state to log
 func Dump() {
-	log.Printf("%5s %d", "PC:", pc)
+	log.Printf("%s %d", "PC:", pc)
+	log.Printf("Instruction count: %d\n", len(prog))
 	for k, v := range regs {
 		log.Printf("r[%d]: 0x%04X (%d)", k, v, v)
 	}

@@ -54,6 +54,9 @@ func parse(args []string) (uint16, error) {
 	case "beq":
 		out, err := parseRRI(args)
 		return spec.EncodeOp(spec.Beq) | out, err
+	case "jalr":
+		out, err := parseRRI(append(args, "0"))
+		return spec.EncodeOp(spec.Jalr) | out, err
 	}
 
 	return out, errors.New("Invalid opcode")

@@ -31,6 +31,7 @@ add    %1, %2, %3 ! add 2 and 2, put the result in register 1
 * add
 * addi
 * beq
+* jalr
 
 ## License
 
